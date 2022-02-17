@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const postSchema = new Schema(
+const userSchema = new Schema(
     {
         userName: {
             type: String,
@@ -12,17 +12,35 @@ const postSchema = new Schema(
             type: String,
             required: true,
             unique: true,
+            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
             //Must match a valid email address (look into Mongoose's matching validation)
         },
-        thoughts: {
+        thoughts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "thought"
+            }
+        ]
             //Array of `_id` values referencing the `Thought` model
-        },
-        friends: {
+        ,
+        friends: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "user"
+            }
+        ]
             //Array of `_id` values referencing the `User` model (self-reference)
+        
+    },
+    {
+        toJSON: {
+            virtuals: true
         }
     }
 )
-
+userSchema.virtual(friendCount).get(function(){
+    return this.friends.length;
+})
 const User = model('user', userSchema);
 
 module.exports = User;
