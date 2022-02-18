@@ -1,9 +1,14 @@
 const express = require('express');
+const router = require('./routes/api/user');
 const mongodb = require("mongodb").MongoClient;
-const data = require("./models");
+// const data = require("./models");
 
 const app = express();
 const port = 3001;
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(router);
 
 const connectionStringURI = `mongodb://localhost:27017/apiSocialNetworkingDB`;
 

@@ -22,13 +22,13 @@ module.exports = {
           .catch((err) => res.status(500).json(err));
     },
 
-    // Add thought to a user
-    addThought(req, res) {
+    // Create thought to a user
+    createThought(req, res) {
         console.log('You are adding a thought');
         console.log(req.body);
-        User.findOneAndUpdate(
-        { _id: req.params.userId },
-        { $addToSet: { thought: req.body } },
+        Thought.create(
+        { _id: req.params.thoughtId },
+        { $addToSet: { user: req.body } },
         { runValidators: true, new: true }
         )
         .then((user) =>
