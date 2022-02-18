@@ -16,13 +16,13 @@ router.route("/").get(getAllUsers);
 
 // `/api/user/:userID
 router
-    .route("/:userId")
+    .route("/:_id")
     .get(getSingleUser)
     .post(createUser)
     .put(updateUser)
     .delete(deleteUser);
 
 // `/api/users/:userId/friends/:friendId`
-router.route("/:userId/friends/:friendId").post(addFriend).delete(removeFriend);
+router.route("/:_id/friends/:friend_id").post(addFriend).delete(removeFriend);
 
 module.exports = router;

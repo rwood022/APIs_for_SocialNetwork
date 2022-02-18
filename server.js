@@ -1,7 +1,7 @@
 const express = require('express');
 const router = require('./routes/api/user');
 const mongodb = require("mongodb").MongoClient;
-// const data = require("./models");
+const data = require("./models");
 
 const app = express();
 const port = 3001;
@@ -20,9 +20,9 @@ mongodb.connect(
   (err, client) => {
     db = client.db();
     // Drops any documents, if they exist
-    db.collection('').deleteMany({});
+    db.collection('apiSocialNetworkingDB').deleteMany({});
     // Adds data to database
-    db.collection('').insertMany(data, (err, res) => {
+    db.collection('apiSocialNetworkingDB').insertMany(data, (err, res) => {
       if (err) {
         return console.log(err);
       }
