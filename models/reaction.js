@@ -16,11 +16,11 @@ const reactionSchema = new Schema(
             type: String,
             required: true
         },
-        createdAt: {
-            date: Date,
-            default: Date.now,
-            get:  (time) => format(time)
-        }
+        // createdAt: {
+        //     date: Date,
+        //     default: Date.now,
+        //     get:  (time) => format(time)
+        // }
     },
     {
         toJSON: {

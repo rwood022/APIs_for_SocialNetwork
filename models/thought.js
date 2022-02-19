@@ -11,24 +11,20 @@ const thoughtSchema = new Schema(
             maxlength: 280,
             // Must be between 1 and 280 characters
         },
-        createAt: {
-            type: Date,
-            default: Date.now,
-            get:  (time) => format(time)
+        // createAt: {
+        //     type: Date,
+        //     default: Date.now,
+        //     get:  (time) => format(time),
+        //     timestamp: true
                 
-            
-            //date:
-            // Set default value to the current timestamp
-            // Use a getter method to format the timestamp on query
-        },
+        // },
         username: {
             type: String,
             required: true
         },
         reactions: [
             schemaReaction,
-        ]
-            
+        ]  
             // Array of nested documents created with the `reactionSchema`
 
     },
