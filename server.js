@@ -1,5 +1,5 @@
 const express = require('express');
-const router = require('./routes/api/user');
+const router = require('./routes');
 const { connect } = require('mongoose');
 const mongoose = require("mongoose");
 const data = require("./models");
@@ -17,7 +17,8 @@ let db;
 
 mongoose.connect(connectionStringURI, {
   useUnifiedTopology: true,
-  useUnifiedTopology: false, 
+  //useUnifiedTopology: false,
+  // useNewURLParaser: true 
 }, err => {
   if(err) throw err;
   console.log('Connected to MongoDB!!!')
