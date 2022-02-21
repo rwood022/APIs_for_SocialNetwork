@@ -5,7 +5,9 @@ module.exports = {
 
     // get all thoughts
     getAllThoughts(req, res) {
+      console.log("get all thoughts");
         Thought.find()
+          // .select('-__v')
           .then((thoughts) => res.json(thoughts))
           .catch((err) => res.status(500).json(err));
     },

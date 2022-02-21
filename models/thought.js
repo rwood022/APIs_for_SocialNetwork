@@ -17,7 +17,7 @@ const thoughtSchema = new Schema(
         //     timestamp: true
                 
         // },
-        username: {
+        userName: {
             type: String,
             required: true
         },
