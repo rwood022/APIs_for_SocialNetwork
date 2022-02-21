@@ -9,7 +9,6 @@ const thoughtSchema = new Schema(
             required: true, 
             minlength: 1,
             maxlength: 280,
-            // Must be between 1 and 280 characters
         },
         // createAt: {
         //     type: Date,
@@ -23,7 +22,7 @@ const thoughtSchema = new Schema(
             required: true
         },
         reactions: [
-            schemaReaction,
+            schemaReaction
         ]  
             // Array of nested documents created with the `reactionSchema`
 
